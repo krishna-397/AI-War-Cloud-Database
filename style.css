@@ -1,0 +1,113 @@
+/* ---- Red-to-orange gradient background ---- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #c0181f 0%, #e8541e 55%, #f7931e 100%);
+  background-attachment: fixed;
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* ---- Content card so text stays readable on the gradient ---- */
+.container {
+  max-width: 880px;
+  margin: 48px auto;
+  padding: 48px 56px;
+  background: rgba(255, 252, 248, 0.96);
+  border-radius: 6px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ---- Typography ---- */
+h1 {
+  font-size: 2.2rem;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #8a2b10;
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 2.2em;
+  padding-bottom: 6px;
+  border-bottom: 3px solid #e8541e;
+  font-size: 1.4rem;
+}
+
+h3 {
+  color: #8a2b10;
+  margin-top: 1.6em;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+a {
+  color: #b3261e;
+}
+
+a:hover {
+  color: #e8541e;
+}
+
+/* ---- Datasheet table ---- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.2em 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5d5c5;
+}
+
+th {
+  width: 170px;
+  color: #8a2b10;
+  font-weight: bold;
+}
+
+/* ---- Bibliography lists ---- */
+ol.bib {
+  padding-left: 1.4em;
+}
+
+ol.bib li {
+  margin-bottom: 0.9em;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* ---- Footer ---- */
+footer {
+  margin-top: 3em;
+  padding-top: 1em;
+  border-top: 1px solid #e5d5c5;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+/* ---- Phone screens ---- */
+@media (max-width: 700px) {
+  .container {
+    margin: 0;
+    padding: 24px 20px;
+    border-radius: 0;
+  }
+  th {
+    width: 110px;
+  }
+}
