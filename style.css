@@ -4,58 +4,46 @@ body {
   min-height: 100vh;
   background: linear-gradient(135deg, #c0181f 0%, #e8541e 55%, #f7931e 100%);
   background-attachment: fixed;
-  font-family: Georgia, 'Times New Roman', serif;
-  color: #1a1a1a;
+  font-family: Helvetica, Arial, sans-serif; /* one font for everything */
+  color: #ffffff;                            /* one text color for everything */
   line-height: 1.6;
 }
 
-/* ---- Content card so text stays readable on the gradient ---- */
+/* ---- Centered content, no card ---- */
 .container {
-  max-width: 880px;
-  margin: 48px auto;
-  padding: 48px 56px;
-  background: rgba(255, 252, 248, 0.96);
-  border-radius: 6px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 56px 24px;
 }
 
-/* ---- Typography ---- */
+/* ---- Headings: same color, just sized ---- */
 h1 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin: 0 0 4px 0;
-  letter-spacing: -0.5px;
-}
-
-.subtitle {
-  font-style: italic;
-  color: #8a2b10;
-  margin-top: 0;
 }
 
 h2 {
-  margin-top: 2.2em;
+  font-size: 1.3rem;
+  margin-top: 2.5em;
   padding-bottom: 6px;
-  border-bottom: 3px solid #e8541e;
-  font-size: 1.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* minimal separator */
 }
 
 h3 {
-  color: #8a2b10;
-  margin-top: 1.6em;
-  font-size: 1.05rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-top: 1.8em;
 }
 
+.subtitle {
+  margin-top: 0;
+}
+
+/* ---- Links: same color as text, underlined ---- */
 a {
-  color: #b3261e;
+  color: #ffffff;
 }
 
-a:hover {
-  color: #e8541e;
-}
-
-/* ---- Datasheet table ---- */
+/* ---- Datasheet table: minimal lines ---- */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -66,13 +54,12 @@ table {
 th, td {
   text-align: left;
   vertical-align: top;
-  padding: 10px 12px;
-  border-bottom: 1px solid #e5d5c5;
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25); /* minimal separator */
 }
 
 th {
   width: 170px;
-  color: #8a2b10;
   font-weight: bold;
 }
 
@@ -87,25 +74,20 @@ ol.bib li {
 
 .note {
   font-size: 0.85rem;
-  color: #666;
-  font-style: italic;
 }
 
 /* ---- Footer ---- */
 footer {
   margin-top: 3em;
   padding-top: 1em;
-  border-top: 1px solid #e5d5c5;
+  border-top: 1px solid rgba(255, 255, 255, 0.4); /* minimal separator */
   font-size: 0.85rem;
-  color: #777;
 }
 
 /* ---- Phone screens ---- */
 @media (max-width: 700px) {
   .container {
-    margin: 0;
-    padding: 24px 20px;
-    border-radius: 0;
+    padding: 32px 16px;
   }
   th {
     width: 110px;
