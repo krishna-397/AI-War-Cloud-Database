@@ -1,6 +1,6 @@
 # Precedent Study: AI War Cloud Database
 
-*Methods as Practices — Precedent Study, Part 1: Data Collection*
+*Methods as Practices — Precedent Study, Parts 1 & 2: Data Collection + Layers of Analysis*
 *Studied by: Krishna Goyal*
 
 ---
@@ -21,6 +21,30 @@
 ## Summary
 
 *AI War Cloud Database* is an interactive database and tangible installation that catalogues the machine learning systems used to make automated decisions in warfare, and maps where the same types of systems appear in everyday consumer technologies — the recommendation engine behind a streaming queue shares its foundations with the systems that select drone targets. Its central argument is what Ciston calls a "techno-imperial boomerang": AI tested on vulnerable populations in conflict zones returns home as consumer products, and vice versa. Formally, the work is a force-directed network graph of 50+ systems that visitors can drag and interrogate — the design choice is the argument, turning geopolitical abstraction into connections users can trace back to their own phones.
+
+---
+
+## Layers of Analysis
+
+*Methods as Practices — Precedent Study, Part 2*
+
+### 1 · Ontological analysis — what exists
+
+*AI War Cloud Database* decomposes into distinct strata, and naming them reveals how the project works. At its core sits a **dataset**: more than fifty techno-military systems spanning twenty-five years, each recorded against the same fields — weapon, developer, user, military purpose, type of technology, repurpose potential (actual or speculative), and source type. Above the data sits a **taxonomy** of machine-learning decision tasks that pairs every military function with its commercial twin: the recommendation engine with the targeting system, the vacuum's floor-mapping with the bomb robot's navigation. The taxonomy is the project's real intellectual labor — the data merely proves it.
+
+The same data then exists in two deliberate **representations**: an interactive force-directed network graph (nodes for weapons, companies, states, and tasks; edges for their entanglements; a physics simulation the visitor can grab and rearrange) and a plain sortable table, kept "readable even in a spreadsheet, to lower the barrier to entry." Beneath both sits a **source apparatus** — journalism, patents, government tenders, corporate marketing copy, academic literature, and source code, all publicly available and cited in a working bibliography — and a **publication substrate**: a Quarto notebook site with its code open on GitLab, explicitly inviting contribution. Finally the project exists as a **tangible installation** (Ars Electronica 2025; the military-architecture hall of Palazzo Poggi, Bologna) and as a **discursive practice** of lecture-performances, interviews, and essays. The decisive ontological fact: the database is the artwork. Graph, table, installation, and talks are all views of a single maintained object — which is why the project can remain "in process" without being unfinished.
+
+### 2 · Historical & contextual analysis — what it answers
+
+The project is dated 2024–ongoing, and the date is doing work. It was built in the immediate aftermath of investigative reporting on Israel's *Lavender* targeting system and amid coverage of Palantir's *MetaConstellation* in Ukraine — the moment when "AI decision support" stopped being speculative and acquired named products, and when Big Tech's pivot into defense contracting (and campaigns against it, such as No Tech for Apartheid) became public knowledge. Ciston's stated question — what responsibility do makers and users of AI tools carry when the same tools kill — is a direct response to that news cycle, but her framing reaches further back: she cites Joseph Weizenbaum's warnings about the "electronic battlefield" from the 1970s–80s, positioning the project as the latest entry in a long refusal by computer scientists to treat military computation as neutral.
+
+The intellectual lineage is explicit and personal: Ciston was research associate on Kate Crawford and Vladan Joler's *Calculating Empires*, and AI War Cloud inherits its method — mapping power through infrastructure — while narrowing the scope to one specific loop, which she names the *techno-imperial boomerang*: systems tested on vulnerable populations in conflict zones return home as consumer products, and consumer infrastructures feed back into war. The intended audience is deliberately layered, and each exhibition context names one: everyday technology users (the spreadsheet), the hacker community (Chaos Communication Congress), the art-institutional circuit (STARTS Prize, Ars Electronica), and the policy-research world she works in (Center for Advanced Internet Studies). The jury's framing — democratic oversight at a moment of European rearmament — confirms the project landed as a policy argument as much as an artwork.
+
+### 3 · Visual & aesthetic analysis — how it argues
+
+The project's visual language is best read as **forensic** rather than expressive. Its aesthetic decisions — every claim sourced, source types encoded as a field in the data, corporate marketing images and patent drawings reproduced as evidence, icons standardized in a legend — belong to the evidentiary tradition of open-source intelligence and of practices like Forensic Architecture, where the credibility of the presentation *is* the argument. The graph aesthetic itself has a precedent lineage running from Mark Lombardi's hand-drawn networks of financial power through Bureau d'études' power diagrams to Joler's *Anatomy of an AI System*; Ciston clearly situates herself in this counter-mapping community, but her forensic sourcing discipline is what separates the work from network art that merely gestures at connectedness.
+
+This is where my one critique lands. Force-directed graphs carry a known risk — call it the Lombardi problem: a tangle of nodes and edges can *aestheticize* complexity, producing the sublime feeling that everything is connected while explaining little about any single connection. AI War Cloud's physics simulation, with its springy, rearrangeable tangle, flirts with exactly this. What redeems it is the double representation: the same data is always one click from the flat, sortable, almost bureaucratically plain table. The spreadsheet is the project's honesty mechanism — where the graph performs the argument, the table permits verification. That pairing, seductive map plus auditable list, is the precedent's most transferable design lesson, and the one I intend to carry into my own work: an interface's credibility comes from letting the viewer descend from spectacle to evidence.
 
 ---
 

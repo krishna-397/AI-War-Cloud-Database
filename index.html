@@ -7,11 +7,15 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- faint network graph drifting behind the text — the precedent's
+       own visual language haunting the page -->
+  <canvas id="net" aria-hidden="true"></canvas>
+
   <div class="container">
 
     <h1>AI War Cloud Database</h1>
     <p class="subtitle">Precedent Study — Methods as Practices, Columbia GSAPP MSCDP<br>
-    Part 1: Data Collection · Krishna</p>
+    Part 1: Data Collection &middot; Part 2: Layers of Analysis &middot; Krishna</p>
 
     <h2>Summary</h2>
 
@@ -37,6 +41,87 @@
       <tr><th>Exhibitions</th><td>Ars Electronica Festival 2025, Linz; <em>Prompting the Real</em>, Museo Palazzo Poggi, Bologna (Nov 2025); experimenta Science Center, Heilbronn; 39th Chaos Communication Congress, Hamburg; ZHdK Refresh 2026, San Francisco</td></tr>
       <tr><th>Links</th><td><a href="https://aiwar.cloud/">aiwar.cloud</a> &middot; <a href="https://gitlab.com/sarahciston/aiwar">source code</a> &middot; <a href="https://sarahciston.com/">sarahciston.com</a></td></tr>
     </table>
+
+    <h2>Layers of Analysis</h2>
+
+    <h3>1 &middot; Ontological analysis &mdash; what exists</h3>
+
+    <p><em>AI War Cloud Database</em> decomposes into distinct strata, and naming them reveals
+    how the project works. At its core sits a <strong>dataset</strong>: more than fifty
+    techno-military systems spanning twenty-five years, each recorded against the same fields
+    &mdash; weapon, developer, user, military purpose, type of technology, repurpose potential
+    (actual or speculative), and source type. Above the data sits a <strong>taxonomy</strong> of
+    machine-learning decision tasks that pairs every military function with its commercial twin:
+    the recommendation engine with the targeting system, the vacuum's floor-mapping with the bomb
+    robot's navigation. The taxonomy is the project's real intellectual labor &mdash; the data
+    merely proves it.</p>
+
+    <p>The same data then exists in two deliberate <strong>representations</strong>: an
+    interactive force-directed network graph (nodes for weapons, companies, states, and tasks;
+    edges for their entanglements; a physics simulation the visitor can grab and rearrange) and a
+    plain sortable table, kept &ldquo;readable even in a spreadsheet, to lower the barrier to
+    entry.&rdquo; Beneath both sits a <strong>source apparatus</strong> &mdash; journalism,
+    patents, government tenders, corporate marketing copy, academic literature, and source code,
+    all publicly available and cited in a working bibliography &mdash; and a
+    <strong>publication substrate</strong>: a Quarto notebook site with its code open on GitLab,
+    explicitly inviting contribution. Finally the project exists as a <strong>tangible
+    installation</strong> (Ars Electronica 2025; the military-architecture hall of Palazzo Poggi,
+    Bologna) and as a <strong>discursive practice</strong> of lecture-performances, interviews,
+    and essays. The decisive ontological fact: the database is the artwork. Graph, table,
+    installation, and talks are all views of a single maintained object &mdash; which is why the
+    project can remain &ldquo;in process&rdquo; without being unfinished.</p>
+
+    <h3>2 &middot; Historical &amp; contextual analysis &mdash; what it answers</h3>
+
+    <p>The project is dated 2024&ndash;ongoing, and the date is doing work. It was built in the
+    immediate aftermath of investigative reporting on Israel's <em>Lavender</em> targeting system
+    and amid coverage of Palantir's <em>MetaConstellation</em> in Ukraine &mdash; the moment when
+    &ldquo;AI decision support&rdquo; stopped being speculative and acquired named products, and
+    when Big Tech's pivot into defense contracting (and campaigns against it, such as No Tech for
+    Apartheid) became public knowledge. Ciston's stated question &mdash; what responsibility do
+    makers and users of AI tools carry when the same tools kill &mdash; is a direct response to
+    that news cycle, but her framing reaches further back: she cites Joseph Weizenbaum's warnings
+    about the &ldquo;electronic battlefield&rdquo; from the 1970s&ndash;80s, positioning the
+    project as the latest entry in a long refusal by computer scientists to treat military
+    computation as neutral.</p>
+
+    <p>The intellectual lineage is explicit and personal: Ciston was research associate on Kate
+    Crawford and Vladan Joler's <em>Calculating Empires</em>, and AI War Cloud inherits its
+    method &mdash; mapping power through infrastructure &mdash; while narrowing the scope from
+    five centuries of technology-and-power to one specific loop, which she names the
+    <em>techno-imperial boomerang</em>: systems tested on vulnerable populations in conflict
+    zones return home as consumer products, and consumer infrastructures feed back into war. The
+    intended audience is deliberately layered, and each exhibition context names one: everyday
+    technology users (the spreadsheet), the hacker community (Chaos Communication Congress), the
+    art-institutional circuit (STARTS Prize, Ars Electronica), and the policy-research world she
+    works in (Center for Advanced Internet Studies). The jury's framing &mdash; democratic
+    oversight at a moment of European rearmament &mdash; confirms the project landed as a policy
+    argument as much as an artwork.</p>
+
+    <h3>3 &middot; Visual &amp; aesthetic analysis &mdash; how it argues</h3>
+
+    <p>The project's visual language is best read as <strong>forensic</strong> rather than
+    expressive. Its aesthetic decisions &mdash; every claim sourced, source types encoded as a
+    field in the data, corporate marketing images and patent drawings reproduced as evidence,
+    icons standardized in a legend &mdash; belong to the evidentiary tradition of open-source
+    intelligence and of practices like Forensic Architecture, where the credibility of the
+    presentation <em>is</em> the argument. The graph aesthetic itself has a precedent lineage
+    running from Mark Lombardi's hand-drawn networks of financial power through Bureau
+    d'&eacute;tudes' power diagrams to Joler's <em>Anatomy of an AI System</em>; Ciston clearly
+    situates herself in this counter-mapping community, but her forensic sourcing discipline is
+    what separates the work from network art that merely gestures at connectedness.</p>
+
+    <p>This is where my one critique lands. Force-directed graphs carry a known risk &mdash; call
+    it the Lombardi problem: a tangle of nodes and edges can <em>aestheticize</em> complexity,
+    producing the sublime feeling that everything is connected while explaining little about any
+    single connection. AI War Cloud's physics simulation, with its springy, rearrangeable
+    tangle, flirts with exactly this. What redeems it is the double representation: the same
+    data is always one click from the flat, sortable, almost bureaucratically plain table. The
+    spreadsheet is the project's honesty mechanism &mdash; where the graph performs the argument,
+    the table permits verification. That pairing, seductive map plus auditable list, is the
+    precedent's most transferable design lesson, and the one I intend to carry into my own work:
+    an interface's credibility comes from letting the viewer descend from spectacle to
+    evidence.</p>
 
     <h2>Bibliography A &mdash; What the author has written or said</h2>
     <p class="note">Saved article texts: <a href="https://github.com/krishna-397/REPO-NAME/tree/main/01_author_sources">01_author_sources folder</a></p>
@@ -100,5 +185,130 @@
     </footer>
 
   </div>
+
+  <script>
+  // ---- background network graph, with depth ------------------------
+  // Three parallax planes: tiny dim nodes far back, a mid field, and
+  // large slow nodes up front. The whole field shifts slightly with
+  // the mouse. "Hot" nodes glow signal red and carry the names of real
+  // entities from the AI War Cloud database — the background is
+  // content, not decoration. Kept faint on purpose.
+  (function () {
+    const cv = document.getElementById("net");
+    const cx = cv.getContext("2d");
+    const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // real entities catalogued by the precedent
+    const ENTITIES = [
+      "LAVENDER", "PALANTIR", "METACONSTELLATION", "WHATSAPP", "ROOMBA",
+      "PROJECT MAVEN", "PROJECT NIMBUS", "ANDURIL", "LATTICE OS",
+      "CLEARVIEW AI", "HARPY", "LANIUS", "GPT-4", "AZURE", "SKYDIO",
+    ];
+
+    let W, H, nodes;
+    let mx = 0.5, my = 0.5;          // mouse position, normalized
+    let px = 0.5, py = 0.5;          // eased parallax position
+
+    function resize() {
+      W = cv.width = window.innerWidth;
+      H = cv.height = window.innerHeight;
+    }
+
+    function init() {
+      resize();
+      const N = Math.min(72, Math.round(W / 24));
+      nodes = [];
+      let label = 0;
+      for (let i = 0; i < N; i++) {
+        // depth plane: 0.35 far, 0.65 mid, 1.0 near
+        const z = [0.35, 0.65, 1.0][i % 3];
+        const hot = i % 8 === 0;
+        nodes.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.22 * z,
+          vy: (Math.random() - 0.5) * 0.22 * z,
+          r: (0.8 + Math.random() * 1.4) * (z * 2),
+          z: z,
+          hot: hot,
+          // only near/mid hot nodes get a name
+          label: hot && z > 0.5 ? ENTITIES[label++ % ENTITIES.length] : null,
+        });
+      }
+    }
+
+    // parallax offset for a node: near planes move more
+    function ox(n) { return n.x + (px - 0.5) * 34 * n.z; }
+    function oy(n) { return n.y + (py - 0.5) * 22 * n.z; }
+
+    function draw() {
+      cx.clearRect(0, 0, W, H);
+
+      // edges: only between nodes on similar planes, so each
+      // depth layer reads as its own web
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          if (Math.abs(a.z - b.z) > 0.31) continue;
+          const link = 90 + 90 * a.z;
+          const dx = ox(a) - ox(b), dy = oy(a) - oy(b);
+          const d = Math.hypot(dx, dy);
+          if (d < link) {
+            const f = (1 - d / link) * a.z;
+            cx.strokeStyle = (a.hot || b.hot)
+              ? `rgba(208, 52, 44, ${0.18 * f})`
+              : `rgba(232, 228, 220, ${0.08 * f})`;
+            cx.lineWidth = 0.5 + 0.3 * a.z;
+            cx.beginPath();
+            cx.moveTo(ox(a), oy(a));
+            cx.lineTo(ox(b), oy(b));
+            cx.stroke();
+          }
+        }
+      }
+
+      // nodes, far plane first
+      [...nodes].sort((a, b) => a.z - b.z).forEach((n) => {
+        const alpha = n.hot ? 0.28 + 0.35 * n.z : 0.10 + 0.22 * n.z;
+        cx.fillStyle = n.hot
+          ? `rgba(208, 52, 44, ${alpha})`
+          : `rgba(232, 228, 220, ${alpha})`;
+        cx.beginPath();
+        cx.arc(ox(n), oy(n), n.r, 0, Math.PI * 2);
+        cx.fill();
+
+        if (n.label) {
+          cx.font = `${Math.round(7 + 3 * n.z)}px ui-monospace, Consolas, monospace`;
+          cx.fillStyle = `rgba(208, 52, 44, ${0.20 + 0.18 * n.z})`;
+          cx.fillText(n.label, ox(n) + n.r + 5, oy(n) + 3);
+        }
+      });
+    }
+
+    function step() {
+      // ease the parallax toward the mouse
+      px += (mx - px) * 0.04;
+      py += (my - py) * 0.04;
+
+      nodes.forEach((n) => {
+        n.x += n.vx;
+        n.y += n.vy;
+        if (n.x < -60) n.x = W + 60; else if (n.x > W + 60) n.x = -60;
+        if (n.y < -60) n.y = H + 60; else if (n.y > H + 60) n.y = -60;
+      });
+      draw();
+      requestAnimationFrame(step);
+    }
+
+    window.addEventListener("mousemove", (ev) => {
+      mx = ev.clientX / W;
+      my = ev.clientY / H;
+    });
+    window.addEventListener("resize", () => { init(); draw(); });
+    init();
+    if (REDUCED) draw();      // static field for reduced-motion users
+    else step();
+  })();
+  </script>
 </body>
 </html>
