@@ -4,139 +4,236 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Precedent Study: AI War Cloud Database — Krishna Goyal</title>
+  <meta name="description" content="A precedent study of Sarah Ciston's AI War Cloud Database — datasheet, layers of analysis, relational diagram, methodology, rhetoric, and assessment.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- faint network graph drifting behind the text — the precedent's
-       own visual language haunting the page -->
+  <!-- faint network graph drifting behind every page -->
   <canvas id="net" aria-hidden="true"></canvas>
 
-  <div class="container">
+  <!-- top chrome: wordmark + menu toggle -->
+  <div class="chrome">
+    <div class="wordmark">Precedent Study &middot; Methods as Practices &middot; GSAPP MSCDP</div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </div>
 
-    <h1>AI War Cloud Database</h1>
-    <p class="subtitle">Precedent Study — Methods as Practices, Columbia GSAPP MSCDP<br>
-    Part 1: Data Collection &middot; Part 2: Layers of Analysis &middot; Part 3: Final Study &middot; Krishna Goyal</p>
+  <!-- overlay menu -->
+  <nav class="menu" id="menu">
+    <ol id="menu-list"></ol>
+  </nav>
 
-    <h2>Summary</h2>
+  <!-- fixed hints -->
+  <div class="progress" id="progress">01 / 12</div>
+  <div class="advance-hint" id="advance-hint">click right to continue &rarr; &middot; left to go back</div>
 
-    <p><em>AI War Cloud Database</em> is an interactive database and tangible installation that
-    catalogues the machine learning systems used to make automated decisions in warfare, and maps
-    where the same types of systems appear in everyday consumer technologies &mdash; the
-    recommendation engine behind a streaming queue shares its foundations with the systems that
-    select drone targets. Its central argument is what Ciston calls a
-    <em>techno-imperial boomerang</em>: AI tested on vulnerable populations in conflict zones
-    returns home as consumer products, and vice versa. Formally, the work is a force-directed
-    network graph of 50+ systems that visitors can drag and interrogate &mdash; the design choice
-    is the argument, turning geopolitical abstraction into connections users can trace back to
-    their own phones.</p>
+  <!-- ==================== 00 · OPENING ==================== -->
+  <section class="page active" id="p0" data-title="Opening">
+    <div class="page-inner">
+      <div class="hero-grid">
+        <div>
+          <h1 class="big">AI WAR CLOUD<br>DATABASE</h1>
+          <p class="subtitle">Sarah Ciston &middot; 2024&ndash;ongoing &middot; studied by Krishna Goyal</p>
+          <p class="hero-summary"><em>AI War Cloud Database</em> is an interactive database and tangible
+          installation that catalogues the machine learning systems used to make automated
+          decisions in warfare, and maps where the same types of systems appear in everyday
+          consumer technologies &mdash; the recommendation engine behind a streaming queue shares
+          its foundations with the systems that select drone targets. Its central argument is
+          what Ciston calls a <em>techno-imperial boomerang</em>: AI tested on vulnerable
+          populations in conflict zones returns home as consumer products, and vice versa.
+          Formally, the work is a force-directed network graph of 50+ systems that visitors can
+          drag and interrogate &mdash; the design choice is the argument, turning geopolitical
+          abstraction into connections users can trace back to their own phones.</p>
+        </div>
+        <div>
+          <div class="hero-vis" id="hero-slot">
+            <div class="ant-holder" id="ant-holder">
+              <canvas id="ant"></canvas>
+            </div>
+            <img id="heroimg"
+                 src="https://ars.electronica.art/aeblog/files/2025/05/screen_shot_2025-03-04_at_4.56.18_pm-scaled.png"
+                 alt="Sarah Ciston's AI War Cloud network graph"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="hero-credit">AI War Cloud Database &copy; Sarah Ciston &mdash; fading into this study's actor-network map</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <h2>Datasheet</h2>
-    <table>
-      <tr><th>Title</th><td><em>AI War Cloud Database</em></td></tr>
-      <tr><th>Author</th><td>Sarah Ciston, PhD (US, b. 1983) &mdash; artist-researcher; PhD Media Arts + Practice, USC; Research Fellow, Center for Advanced Internet Studies; research associate on Crawford &amp; Joler&rsquo;s <em>Calculating Empires</em></td></tr>
-      <tr><th>Year</th><td>2024&ndash;ongoing (continually updated, open source)</td></tr>
-      <tr><th>Format</th><td>Interactive online database + tangible interactive installation. Built with Quarto; force-directed network graph (nodes = weapons, companies, ML tasks) with adjustable physics simulation; sortable data table of 50+ systems spanning 25 years; open-source code on GitLab</td></tr>
-      <tr><th>Intended audience</th><td>General public and everyday technology users; tech workers, programmers, and designers; policymakers; critical AI researchers and artists. Deliberately &ldquo;readable even in a spreadsheet, to lower the barrier to entry&rdquo; (Ciston)</td></tr>
-      <tr><th>Recognition</th><td>S+T+ARTS Grand Prize &ndash; Artistic Exploration, European Commission, 2025 (&euro;20,000)</td></tr>
-      <tr><th>Exhibitions</th><td>Ars Electronica Festival 2025, Linz; <em>Prompting the Real</em>, Museo Palazzo Poggi, Bologna (Nov 2025); experimenta Science Center, Heilbronn; 39th Chaos Communication Congress, Hamburg; ZHdK Refresh 2026, San Francisco</td></tr>
-      <tr><th>Links</th><td><a href="https://aiwar.cloud/">aiwar.cloud</a> &middot; <a href="https://gitlab.com/sarahciston/aiwar">source code</a> &middot; <a href="https://sarahciston.com/">sarahciston.com</a></td></tr>
-    </table>
+  <!-- ==================== 01 · DATASHEET ==================== -->
+  <section class="page" id="p1" data-title="Datasheet">
+    <div class="page-inner">
+      <p class="kicker">01 &mdash; Data Collection</p>
+      <h2>Datasheet</h2>
+      <div class="cols">
+        <div>
+          <table>
+            <tr><th>Title</th><td><em>AI War Cloud Database</em></td></tr>
+            <tr><th>Author</th><td>Sarah Ciston, PhD (US, b. 1983) &mdash; artist-researcher; PhD Media Arts + Practice, USC; Research Fellow, Center for Advanced Internet Studies; research associate on Crawford &amp; Joler&rsquo;s <em>Calculating Empires</em></td></tr>
+            <tr><th>Year</th><td>2024&ndash;ongoing (continually updated, open source)</td></tr>
+            <tr><th>Format</th><td>Interactive online database + tangible interactive installation. Built with Quarto; force-directed network graph (nodes = weapons, companies, ML tasks) with adjustable physics simulation; sortable data table of 50+ systems spanning 25 years; open-source code on GitLab</td></tr>
+            <tr><th>Intended audience</th><td>General public and everyday technology users; tech workers, programmers, and designers; policymakers; critical AI researchers and artists. Deliberately &ldquo;readable even in a spreadsheet, to lower the barrier to entry&rdquo; (Ciston)</td></tr>
+            <tr><th>Recognition</th><td>S+T+ARTS Grand Prize &ndash; Artistic Exploration, European Commission, 2025 (&euro;20,000)</td></tr>
+            <tr><th>Exhibitions</th><td>Ars Electronica Festival 2025, Linz; <em>Prompting the Real</em>, Museo Palazzo Poggi, Bologna (Nov 2025); experimenta Science Center, Heilbronn; 39th Chaos Communication Congress, Hamburg; ZHdK Refresh 2026, San Francisco</td></tr>
+            <tr><th>Links</th><td><a href="https://aiwar.cloud/">aiwar.cloud</a> &middot; <a href="https://gitlab.com/sarahciston/aiwar">source code</a> &middot; <a href="https://sarahciston.com/">sarahciston.com</a></td></tr>
+          </table>
+        </div>
+        <figure class="sidefig">
+          <img src="https://static1.squarespace.com/static/617525cfe98f935746643739/617525f3e98f935746643af9/685ac4f5b4f61678a79c23bd/1751611570766/AIWarCloud%2540PaigeZangoglia.jpg"
+               alt="AI War Cloud installation" loading="lazy" onerror="this.parentElement.style.display='none'">
+          <figcaption>AI War Cloud Database &middot; photo &copy; Paige Zangoglia, via S+T+ARTS Prize</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <h2>Layers of Analysis</h2>
+  <!-- ==================== 02 · ONTOLOGICAL ==================== -->
+  <section class="page" id="p2" data-title="Ontological Analysis">
+    <div class="page-inner">
+      <p class="kicker">02 &mdash; Layers of Analysis</p>
+      <h2>Ontological Analysis &mdash; What Exists</h2>
+      <div class="cols">
+        <div>
+          <p><em>AI War Cloud Database</em> decomposes into distinct strata, and naming them reveals
+          how the project works. At its core sits a <strong>dataset</strong>: more than fifty
+          techno-military systems spanning twenty-five years, each recorded against the same fields
+          &mdash; weapon, developer, user, military purpose, type of technology, repurpose potential
+          (actual or speculative), and source type. Above the data sits a <strong>taxonomy</strong> of
+          machine-learning decision tasks that pairs every military function with its commercial twin:
+          the recommendation engine with the targeting system, the vacuum's floor-mapping with the bomb
+          robot's navigation. The taxonomy is the project's real intellectual labor &mdash; the data
+          merely proves it.</p>
+          <p>The same data then exists in two deliberate <strong>representations</strong>: an
+          interactive force-directed network graph (nodes for weapons, companies, states, and tasks;
+          edges for their entanglements; a physics simulation the visitor can grab and rearrange) and a
+          plain sortable table, kept &ldquo;readable even in a spreadsheet, to lower the barrier to
+          entry.&rdquo; Beneath both sits a <strong>source apparatus</strong> &mdash; journalism,
+          patents, government tenders, corporate marketing copy, academic literature, and source code,
+          all publicly available and cited in a working bibliography &mdash; and a
+          <strong>publication substrate</strong>: a Quarto notebook site with its code open on GitLab,
+          explicitly inviting contribution. Finally the project exists as a <strong>tangible
+          installation</strong> (Ars Electronica 2025; the military-architecture hall of Palazzo Poggi,
+          Bologna) and as a <strong>discursive practice</strong> of lecture-performances, interviews,
+          and essays. The decisive ontological fact: the database is the artwork. Graph, table,
+          installation, and talks are all views of a single maintained object &mdash; which is why the
+          project can remain &ldquo;in process&rdquo; without being unfinished.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://ars.electronica.art/aeblog/files/2025/05/aiwarcloud-tasks-1439x1000.png"
+               alt="Chart of ML decision task categories, military and commercial" loading="lazy"
+               onerror="this.style.display='none'">
+          <figcaption>ML Decision Tasks &mdash; the taxonomy pairing military objectives with
+          commercial goals &middot; &copy; Sarah Ciston, via Ars Electronica</figcaption>
+          <img src="https://ars.electronica.art/aeblog/files/2025/05/screen_shot_2025-03-04_at_4.56.18_pm-scaled.png"
+               alt="The force-directed actor map of AI War Cloud" loading="lazy"
+               onerror="this.style.display='none'">
+          <figcaption>The actor map &mdash; one of the two representations of the same data
+          &middot; &copy; Sarah Ciston, via Ars Electronica</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <h3>1 &middot; Ontological analysis &mdash; what exists</h3>
+  <!-- ==================== 03 · HISTORICAL ==================== -->
+  <section class="page" id="p3" data-title="Historical &amp; Contextual">
+    <div class="page-inner">
+      <p class="kicker">03 &mdash; Layers of Analysis</p>
+      <h2>Historical &amp; Contextual Analysis &mdash; What It Answers</h2>
+      <div class="cols">
+        <div>
+          <p>The project is dated 2024&ndash;ongoing, and the date is doing work. It was built in the
+          immediate aftermath of investigative reporting on Israel's <em>Lavender</em> targeting system
+          and amid coverage of Palantir's <em>MetaConstellation</em> in Ukraine &mdash; the moment when
+          &ldquo;AI decision support&rdquo; stopped being speculative and acquired named products, and
+          when Big Tech's pivot into defense contracting (and campaigns against it, such as No Tech for
+          Apartheid) became public knowledge. Ciston's stated question &mdash; what responsibility do
+          makers and users of AI tools carry when the same tools kill &mdash; is a direct response to
+          that news cycle, but her framing reaches further back: she cites Joseph Weizenbaum's warnings
+          about the &ldquo;electronic battlefield&rdquo; from the 1970s&ndash;80s, positioning the
+          project as the latest entry in a long refusal by computer scientists to treat military
+          computation as neutral.</p>
+          <p>The intellectual lineage is explicit and personal: Ciston was research associate on Kate
+          Crawford and Vladan Joler's <em>Calculating Empires</em>, and AI War Cloud inherits its
+          method &mdash; mapping power through infrastructure &mdash; while narrowing the scope from
+          five centuries of technology-and-power to one specific loop, which she names the
+          <em>techno-imperial boomerang</em>: systems tested on vulnerable populations in conflict
+          zones return home as consumer products, and consumer infrastructures feed back into war. The
+          intended audience is deliberately layered, and each exhibition context names one: everyday
+          technology users (the spreadsheet), the hacker community (Chaos Communication Congress), the
+          art-institutional circuit (STARTS Prize, Ars Electronica), and the policy-research world she
+          works in (Center for Advanced Internet Studies). The jury's framing &mdash; democratic
+          oversight at a moment of European rearmament &mdash; confirms the project landed as a policy
+          argument as much as an artwork.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/PX5TXHETPNCWLADKHVX6ABLNJ4_size-normalized.png&amp;w=1440"
+               alt="Aerial view of a destroyed city with buildings marked by colored dots" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>Buildings marked as targets &mdash; graphic from coverage of Israel's AI
+          targeting systems &middot; via <em>The Washington Post</em></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <p><em>AI War Cloud Database</em> decomposes into distinct strata, and naming them reveals
-    how the project works. At its core sits a <strong>dataset</strong>: more than fifty
-    techno-military systems spanning twenty-five years, each recorded against the same fields
-    &mdash; weapon, developer, user, military purpose, type of technology, repurpose potential
-    (actual or speculative), and source type. Above the data sits a <strong>taxonomy</strong> of
-    machine-learning decision tasks that pairs every military function with its commercial twin:
-    the recommendation engine with the targeting system, the vacuum's floor-mapping with the bomb
-    robot's navigation. The taxonomy is the project's real intellectual labor &mdash; the data
-    merely proves it.</p>
+  <!-- ==================== 04 · VISUAL ==================== -->
+  <section class="page" id="p4" data-title="Visual &amp; Aesthetic">
+    <div class="page-inner">
+      <p class="kicker">04 &mdash; Layers of Analysis</p>
+      <h2>Visual &amp; Aesthetic Analysis &mdash; How It Argues</h2>
+      <div class="cols">
+        <div>
+          <p>The project's visual language is best read as <strong>forensic</strong> rather than
+          expressive. Its aesthetic decisions &mdash; every claim sourced, source types encoded as a
+          field in the data, corporate marketing images and patent drawings reproduced as evidence,
+          icons standardized in a legend &mdash; belong to the evidentiary tradition of open-source
+          intelligence and of practices like Forensic Architecture, where the credibility of the
+          presentation <em>is</em> the argument. The graph aesthetic itself has a precedent lineage
+          running from Mark Lombardi's hand-drawn networks of financial power through Bureau
+          d'&eacute;tudes' power diagrams to Joler's <em>Anatomy of an AI System</em>; Ciston clearly
+          situates herself in this counter-mapping community, but her forensic sourcing discipline is
+          what separates the work from network art that merely gestures at connectedness.</p>
+          <p>This is where my one critique lands. Force-directed graphs carry a known risk &mdash; call
+          it the Lombardi problem: a tangle of nodes and edges can <em>aestheticize</em> complexity,
+          producing the sublime feeling that everything is connected while explaining little about any
+          single connection. AI War Cloud's physics simulation, with its springy, rearrangeable
+          tangle, flirts with exactly this. What redeems it is the double representation: the same
+          data is always one click from the flat, sortable, almost bureaucratically plain table. The
+          spreadsheet is the project's honesty mechanism &mdash; where the graph performs the argument,
+          the table permits verification. That pairing, seductive map plus auditable list, is the
+          precedent's most transferable design lesson, and the one I intend to carry into my own work:
+          an interface's credibility comes from letting the viewer descend from spectacle to
+          evidence.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://espaceartactuel.com/wp-content/uploads/2013/05/casemajor-3-1.jpg"
+               alt="Mark Lombardi circular network drawing" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>Mark Lombardi's hand-drawn network of financial power &mdash; the lineage,
+          and the risk &middot; via Nathalie Casemajor Loustau, &ldquo;Mark Lombardi's Topographies
+          of Power: The Work in the Map,&rdquo; <em>Espace art actuel</em>, 2013 &middot;
+          artwork &copy; estate of Mark Lombardi</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <p>The same data then exists in two deliberate <strong>representations</strong>: an
-    interactive force-directed network graph (nodes for weapons, companies, states, and tasks;
-    edges for their entanglements; a physics simulation the visitor can grab and rearrange) and a
-    plain sortable table, kept &ldquo;readable even in a spreadsheet, to lower the barrier to
-    entry.&rdquo; Beneath both sits a <strong>source apparatus</strong> &mdash; journalism,
-    patents, government tenders, corporate marketing copy, academic literature, and source code,
-    all publicly available and cited in a working bibliography &mdash; and a
-    <strong>publication substrate</strong>: a Quarto notebook site with its code open on GitLab,
-    explicitly inviting contribution. Finally the project exists as a <strong>tangible
-    installation</strong> (Ars Electronica 2025; the military-architecture hall of Palazzo Poggi,
-    Bologna) and as a <strong>discursive practice</strong> of lecture-performances, interviews,
-    and essays. The decisive ontological fact: the database is the artwork. Graph, table,
-    installation, and talks are all views of a single maintained object &mdash; which is why the
-    project can remain &ldquo;in process&rdquo; without being unfinished.</p>
-
-    <h3>2 &middot; Historical &amp; contextual analysis &mdash; what it answers</h3>
-
-    <p>The project is dated 2024&ndash;ongoing, and the date is doing work. It was built in the
-    immediate aftermath of investigative reporting on Israel's <em>Lavender</em> targeting system
-    and amid coverage of Palantir's <em>MetaConstellation</em> in Ukraine &mdash; the moment when
-    &ldquo;AI decision support&rdquo; stopped being speculative and acquired named products, and
-    when Big Tech's pivot into defense contracting (and campaigns against it, such as No Tech for
-    Apartheid) became public knowledge. Ciston's stated question &mdash; what responsibility do
-    makers and users of AI tools carry when the same tools kill &mdash; is a direct response to
-    that news cycle, but her framing reaches further back: she cites Joseph Weizenbaum's warnings
-    about the &ldquo;electronic battlefield&rdquo; from the 1970s&ndash;80s, positioning the
-    project as the latest entry in a long refusal by computer scientists to treat military
-    computation as neutral.</p>
-
-    <p>The intellectual lineage is explicit and personal: Ciston was research associate on Kate
-    Crawford and Vladan Joler's <em>Calculating Empires</em>, and AI War Cloud inherits its
-    method &mdash; mapping power through infrastructure &mdash; while narrowing the scope from
-    five centuries of technology-and-power to one specific loop, which she names the
-    <em>techno-imperial boomerang</em>: systems tested on vulnerable populations in conflict
-    zones return home as consumer products, and consumer infrastructures feed back into war. The
-    intended audience is deliberately layered, and each exhibition context names one: everyday
-    technology users (the spreadsheet), the hacker community (Chaos Communication Congress), the
-    art-institutional circuit (STARTS Prize, Ars Electronica), and the policy-research world she
-    works in (Center for Advanced Internet Studies). The jury's framing &mdash; democratic
-    oversight at a moment of European rearmament &mdash; confirms the project landed as a policy
-    argument as much as an artwork.</p>
-
-    <h3>3 &middot; Visual &amp; aesthetic analysis &mdash; how it argues</h3>
-
-    <p>The project's visual language is best read as <strong>forensic</strong> rather than
-    expressive. Its aesthetic decisions &mdash; every claim sourced, source types encoded as a
-    field in the data, corporate marketing images and patent drawings reproduced as evidence,
-    icons standardized in a legend &mdash; belong to the evidentiary tradition of open-source
-    intelligence and of practices like Forensic Architecture, where the credibility of the
-    presentation <em>is</em> the argument. The graph aesthetic itself has a precedent lineage
-    running from Mark Lombardi's hand-drawn networks of financial power through Bureau
-    d'&eacute;tudes' power diagrams to Joler's <em>Anatomy of an AI System</em>; Ciston clearly
-    situates herself in this counter-mapping community, but her forensic sourcing discipline is
-    what separates the work from network art that merely gestures at connectedness.</p>
-
-    <p>This is where my one critique lands. Force-directed graphs carry a known risk &mdash; call
-    it the Lombardi problem: a tangle of nodes and edges can <em>aestheticize</em> complexity,
-    producing the sublime feeling that everything is connected while explaining little about any
-    single connection. AI War Cloud's physics simulation, with its springy, rearrangeable
-    tangle, flirts with exactly this. What redeems it is the double representation: the same
-    data is always one click from the flat, sortable, almost bureaucratically plain table. The
-    spreadsheet is the project's honesty mechanism &mdash; where the graph performs the argument,
-    the table permits verification. That pairing, seductive map plus auditable list, is the
-    precedent's most transferable design lesson, and the one I intend to carry into my own work:
-    an interface's credibility comes from letting the viewer descend from spectacle to
-    evidence.</p>
-
-    <h2>Relational Diagram</h2>
-
-    <p>AI War Cloud is itself a relational diagram, so mapping it is analysis in the project's
-    own language. The network below traces the actors &mdash; human, institutional, and
-    non-human &mdash; whose associations produce and sustain the work: the maker and her
-    lineage, the open-source infrastructure, the OSINT sources that feed the database, the
-    techno-military systems it maps, the exhibition and funding circuits that circulate it, and
-    the audiences it addresses. Following actor-network theory, tools and datasets appear as
-    actors in their own right: WhatsApp's data and the Quarto notebook shape this network as
-    much as any person does. <span class="note">Drag any node. Hover to isolate its
-    connections.</span></p>
-
-    <div class="ant-holder">
-      <canvas id="ant"></canvas>
+  <!-- ==================== 05 · RELATIONAL DIAGRAM ==================== -->
+  <section class="page" id="p5" data-title="Relational Diagram">
+    <div class="page-inner">
+      <p class="kicker">05 &mdash; Final Study</p>
+      <h2>Relational Diagram &mdash; The Practice as a Web</h2>
+      <p>AI War Cloud is itself a relational diagram, so mapping it is analysis in the project's
+      own language. The network below traces the actors &mdash; human, institutional, and
+      non-human &mdash; whose associations produce and sustain the work: the maker and her
+      lineage, the open-source infrastructure, the OSINT sources that feed the database, the
+      techno-military systems it maps, the exhibition and funding circuits that circulate it, and
+      the audiences it addresses. Following actor-network theory, tools and datasets appear as
+      actors in their own right. <span class="note">Drag any node. Hover to isolate its
+      connections.</span></p>
+      <div id="ant-slot"></div>
       <div class="ant-legend">
         <span>&#9679; person / institution</span>
         <span>&#9632; tool / artifact</span>
@@ -146,164 +243,310 @@
         <span>&middot;&middot;&middot; data flows</span>
       </div>
     </div>
+  </section>
 
-    <h2>Methodology</h2>
+  <!-- ==================== 06 · METHODOLOGY ==================== -->
+  <section class="page" id="p6" data-title="Methodology">
+    <div class="page-inner">
+      <p class="kicker">06 &mdash; Final Study</p>
+      <h2>Methodology</h2>
+      <div class="cols">
+        <div>
+          <p>The practice underneath the project is a disciplined loop of <strong>open-source
+          intelligence</strong>: collect only publicly available materials &mdash; investigative
+          journalism, patents, government tenders, corporate marketing, academic literature, and where
+          possible source code &mdash; then cross-reference across source types before an entry earns
+          its place. Provenance is not a footnote but a field: every record carries its source type in
+          the data itself, so the reader can weigh a marketing claim differently from a procurement
+          document. This choice does double rhetorical work &mdash; it demonstrates that the
+          infrastructure of automated warfare is legally public, and it makes the database auditable
+          by anyone.</p>
+          <p>The software approach follows the same politics: a <strong>Quarto</strong> notebook site
+          (research documents that execute), code kept open on GitLab, an interactive force-directed
+          graph for exploration and an ITables spreadsheet view for verification, deliberately
+          &ldquo;readable even in a spreadsheet, to lower the barrier to entry.&rdquo; Theoretically
+          the project operates as <strong>artistic research</strong> informed by critical code studies
+          and counter-mapping: where journalism asks &ldquo;who did what,&rdquo; Ciston's method asks
+          what the systems mean for the person using their consumer twins &mdash; analysis routed
+          through embodiment and form as much as through evidence.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://images.squarespace-cdn.com/content/v1/617525cfe98f935746643739/dc6aaf67-d512-4e1b-80d5-8f6f7f622c2f/AIWarCloud%40SarahCiston_5.png"
+               alt="Chart of the task taxonomy" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>Chart of the task taxonomy &middot; &copy; Sarah Ciston, via S+T+ARTS</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <p>The practice underneath the project is a disciplined loop of <strong>open-source
-    intelligence</strong>: collect only publicly available materials &mdash; investigative
-    journalism, patents, government tenders, corporate marketing, academic literature, and where
-    possible source code &mdash; then cross-reference across source types before an entry earns
-    its place. Provenance is not a footnote but a field: every record carries its source type in
-    the data itself, so the reader can weigh a marketing claim differently from a procurement
-    document. This choice does double rhetorical work &mdash; it demonstrates that the
-    infrastructure of automated warfare is legally public, and it makes the database auditable
-    by anyone.</p>
+  <!-- ==================== 07 · RHETORICAL ==================== -->
+  <section class="page" id="p7" data-title="Rhetorical Analysis">
+    <div class="page-inner">
+      <p class="kicker">07 &mdash; Final Study</p>
+      <h2>Rhetorical Analysis</h2>
+      <div class="cols">
+        <div>
+          <p>The project's central claim is the <strong>techno-imperial boomerang</strong>: AI systems
+          tested on vulnerable populations &mdash; refugees at biometric checkpoints, civilians in
+          conflict zones &mdash; return home as consumer products, while consumer infrastructures feed
+          back into war. Its second argument attacks the language of the field: &ldquo;AI decision
+          support&rdquo; is a misdirect, because the problems are common to all AI systems, which
+          &ldquo;amplify, accelerate, and neutral-wash biased human processes&rdquo;; the
+          &ldquo;human in the loop&rdquo; is an alibi when the loop itself has been algorithmically
+          constructed. The quiet third argument is made by form rather than words: the same dataset
+          rendered as both seductive graph and plain spreadsheet asserts that <em>visibility plus
+          verifiability</em> is what accountability looks like.</p>
+          <p>Its criticality is therefore procedural, not just thematic. The project does not
+          editorialize its entries; it arranges public facts until the pattern is undeniable, and it
+          refuses the comfort of a solution &mdash; Ciston consistently declines to answer
+          &ldquo;what should we use instead,&rdquo; redirecting to &ldquo;which questions must we
+          learn to ask?&rdquo; The work is a plea structured as an index: it ends not in catharsis
+          but in a standing invitation to contribute, extend, and audit.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://mangrovia.info/wp-content/uploads/2026/01/Prompting-the-Real-Museo-di-Palazzo-Poggi-Bologna-Eleonora-Rossi-2025-2-scaled.webp"
+               alt="Visitors reading the AI War Cloud map in Bologna" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>The argument meeting its audience, Palazzo Poggi &middot; photo &copy; Eleonora
+          Rossi, via Mangrovia</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <p>The software approach follows the same politics: a <strong>Quarto</strong> notebook site
-    (research documents that execute), code kept open on GitLab, an interactive force-directed
-    graph for exploration and an ITables spreadsheet view for verification, deliberately
-    &ldquo;readable even in a spreadsheet, to lower the barrier to entry.&rdquo; Theoretically
-    the project operates as <strong>artistic research</strong> informed by critical code studies
-    and counter-mapping: where journalism asks &ldquo;who did what,&rdquo; Ciston's method asks
-    what the systems mean for the person using their consumer twins &mdash; analysis routed
-    through embodiment and form as much as through evidence.</p>
+  <!-- ==================== 08 · WIDER PRACTICE ==================== -->
+  <section class="page" id="p8" data-title="The Author's Wider Practice">
+    <div class="page-inner">
+      <p class="kicker">08 &mdash; Final Study</p>
+      <h2>The Author's Wider Practice</h2>
+      <div class="cols">
+        <div>
+          <p>AI War Cloud is not a departure but a synthesis. Ciston's practice has moved through
+          three registers that all land here: <strong>pedagogy</strong> &mdash; founding Code
+          Collective, an approachable community for co-learning programming, and writing
+          <em>A Critical Field Guide for Working with Machine Learning Datasets</em> (2023), which
+          taught a general audience to interrogate training data; <strong>method</strong> &mdash;
+          intersectional, critical-creative approaches to machine learning, developed through
+          fellowships at the Akademie der K&uuml;nste, HIIG, and the Center for Advanced Internet
+          Studies; and <strong>lineage</strong> &mdash; serving as research associate on Crawford and
+          Joler's <em>Calculating Empires</em>, the apprenticeship in mapping power through
+          infrastructure that this project explicitly inherits and narrows. The forthcoming
+          <em>Inventing ELIZA</em> (MIT Press, 2026) extends the same instinct backward into history:
+          understand the system by reconstructing how it was made. Across all of it runs one
+          consistent posture &mdash; lower the barrier to technical understanding so that critique
+          can be collective rather than expert-only. AI War Cloud is that posture aimed at the
+          hardest possible subject.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://sarahciston.com/assets/innervoiceover-imap2019-2.jpg"
+               alt="A visitor before the inner(voice)over whisper dish, text projected across them" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>Sarah Ciston, <em>inner(voice)over</em> (2019) &mdash; interactive
+          whisper-dish installation rewriting the inner critic with NLP &middot; image via
+          <a href="https://sarahciston.com/#toc">sarahciston.com</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <h2>Rhetorical Analysis</h2>
+  <!-- ==================== 09 · ASSESSMENT ==================== -->
+  <section class="page" id="p9" data-title="Personal Assessment">
+    <div class="page-inner">
+      <p class="kicker">09 &mdash; Final Study</p>
+      <h2>Personal Assessment</h2>
+      <div class="cols">
+        <div>
+          <p><strong>Appraisal.</strong> The project's great achievement is its double representation.
+          The force-directed graph performs the argument &mdash; everything touches everything &mdash;
+          while the spreadsheet permits verification, and the honesty of the pairing is what elevates
+          the work above most network art. Equally strong is the decision to make provenance a data
+          field: the project practices the accountability it demands. And the open repository turns a
+          finished artwork into standing infrastructure that others can extend &mdash; a model for
+          what I take computational design research to be.</p>
+          <p><strong>Criticism.</strong> Two pressures, offered in the project's own spirit. First,
+          the Lombardi problem from my visual analysis: the springy graph flirts with aestheticizing
+          complexity, and only the table redeems it &mdash; a viewer who never clicks through to the
+          spreadsheet gets the sublime without the evidence. Second, OSINT has a ceiling: classified
+          systems appear only through their public exhaust, so the database maps what power
+          <em>publishes</em>, not what it does &mdash; the project acknowledges this but cannot escape
+          it. Neither defeats the work; they mark where a successor project &mdash; perhaps mine
+          &mdash; should push.</p>
+        </div>
+        <figure class="sidefig">
+          <img src="https://mangrovia.info/wp-content/uploads/2026/01/Prompting-the-Real-Museo-di-Palazzo-Poggi-Bologna-Eleonora-Rossi-2025-3-scaled.webp"
+               alt="AI War Cloud installation view" loading="lazy"
+               onerror="this.parentElement.style.display='none'">
+          <figcaption>Installation view, Palazzo Poggi &middot; photo &copy; Eleonora Rossi, via
+          Mangrovia</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
-    <p>The project's central claim is the <strong>techno-imperial boomerang</strong>: AI systems
-    tested on vulnerable populations &mdash; refugees at biometric checkpoints, civilians in
-    conflict zones &mdash; return home as consumer products, while consumer infrastructures feed
-    back into war. Its second argument attacks the language of the field: &ldquo;AI decision
-    support&rdquo; is a misdirect, because the problems are common to all AI systems, which
-    &ldquo;amplify, accelerate, and neutral-wash biased human processes&rdquo;; the
-    &ldquo;human in the loop&rdquo; is an alibi when the loop itself has been algorithmically
-    constructed. The quiet third argument is made by form rather than words: the same dataset
-    rendered as both seductive graph and plain spreadsheet asserts that <em>visibility plus
-    verifiability</em> is what accountability looks like.</p>
+  <!-- ==================== 10 · BIBLIOGRAPHY A ==================== -->
+  <section class="page" id="p10" data-title="Bibliography A — The Author">
+    <div class="page-inner">
+      <p class="kicker">10 &mdash; Sources</p>
+      <h2>Bibliography A &mdash; The Author</h2>
+      <p class="note">Saved article texts: <a href="https://github.com/krishna-397/AI-War-Cloud-Database/tree/main/01_author_sources">01_author_sources folder</a></p>
 
-    <p>Its criticality is therefore procedural, not just thematic. The project does not
-    editorialize its entries; it arranges public facts until the pattern is undeniable, and it
-    refuses the comfort of a solution &mdash; Ciston consistently declines to answer
-    &ldquo;what should we use instead,&rdquo; redirecting to &ldquo;which questions must we
-    learn to ask?&rdquo; The work is a plea structured as an index: it ends not in catharsis
-    but in a standing invitation to contribute, extend, and audit.</p>
+      <h3>Primary project texts</h3>
+      <ol class="bib">
+        <li>Ciston, Sarah. <em>AI War Cloud</em> &mdash; project website and database. 2024&ndash;ongoing. <a href="https://aiwar.cloud/">aiwar.cloud</a></li>
+        <li>Ciston, Sarah. &ldquo;About the Process.&rdquo; <em>AI War Cloud</em>. <a href="https://aiwar.cloud/about.html">aiwar.cloud/about.html</a> &mdash; process essay, credits, and the project&rsquo;s full working bibliography.</li>
+        <li>Ciston, Sarah. <em>aiwar</em> &mdash; open-source code repository and documentation. <a href="https://gitlab.com/sarahciston/aiwar">GitLab</a></li>
+        <li>Ciston, Sarah. Artist statement, &ldquo;AI War Cloud Database.&rdquo; <em>S+T+ARTS Prize 2025</em>. <a href="https://starts-prize.aec.at/en/ai-war-cloud-database/">starts-prize.aec.at</a></li>
+      </ol>
 
-    <h2>The Author's Wider Practice</h2>
+      <h3>Interviews &amp; podcasts</h3>
+      <ol class="bib" start="5">
+        <li>Kreuzhuber, Katia (interviewer). &ldquo;Tracing the Invisible Lines Between Devices and Drones.&rdquo; <em>Ars Electronica Blog</em>, June 4, 2025. <a href="https://ars.electronica.art/aeblog/en/2025/06/04/ai-war-cloud-database/">Link</a></li>
+        <li>&ldquo;Web of AI: Linking Homes and Battlefields.&rdquo; <em>Ars Electronica Podcast</em>, 2025. <a href="https://ars.electronica.art/podcast/en/web-of-ai-linking-homes-and-battlefields/">Link</a></li>
+      </ol>
 
-    <p>AI War Cloud is not a departure but a synthesis. Ciston's practice has moved through
-    three registers that all land here: <strong>pedagogy</strong> &mdash; founding Code
-    Collective, an approachable community for co-learning programming, and writing
-    <em>A Critical Field Guide for Working with Machine Learning Datasets</em> (2023), which
-    taught a general audience to interrogate training data; <strong>method</strong> &mdash;
-    intersectional, critical-creative approaches to machine learning, developed through
-    fellowships at the Akademie der K&uuml;nste, HIIG, and the Center for Advanced Internet
-    Studies; and <strong>lineage</strong> &mdash; serving as research associate on Crawford and
-    Joler's <em>Calculating Empires</em>, the apprenticeship in mapping power through
-    infrastructure that this project explicitly inherits and narrows. The forthcoming
-    <em>Inventing ELIZA</em> (MIT Press, 2026) extends the same instinct backward into history:
-    understand the system by reconstructing how it was made. Across all of it runs one
-    consistent posture &mdash; lower the barrier to technical understanding so that critique
-    can be collective rather than expert-only. AI War Cloud is that posture aimed at the
-    hardest possible subject.</p>
+      <h3>Talks &amp; lecture-performances</h3>
+      <ol class="bib" start="7">
+        <li>Ciston, Sarah. &ldquo;Inside the AI War Cloud.&rdquo; Lecture-performance, Ars Electronica Festival 2025: <em>Panic</em>, Linz. <a href="https://ars.electronica.art/panic/en/view/inside-the-ai-war-cloud-22638ddb450c81db89adde611f37652a/">Link</a></li>
+        <li>Ciston, Sarah (panelist). &ldquo;AI War Cloud and the New Architecture of Power.&rdquo; Ars Electronica Festival 2025. <a href="https://ars.electronica.art/panic/en/view/ai-war-cloud-and-the-new-architecture-of-power-23338ddb450c80eda879d05ac7aac77f/">Link</a></li>
+        <li>Ciston, Sarah. &ldquo;Mapping the AI War Cloud.&rdquo; Talk, <em>re:publica 25</em>, Berlin. <a href="https://re-publica.com/en/node/10597">Link</a></li>
+        <li>Ciston, Sarah. &ldquo;Building the AI War Cloud Database.&rdquo; Cambridge Digital Humanities / CRASSH, University of Cambridge. <a href="https://www.cdh.cam.ac.uk/events/39766/">Link</a></li>
+        <li>Ciston, Sarah. <em>AI War Cloud Database</em> project assembly, 39th Chaos Communication Congress, Hamburg, Dec 2025. <a href="https://events.ccc.de/congress/2025/hub/en/project/detail/assembly/ai-war-cloud-database/">Link</a></li>
+      </ol>
 
-    <h2>Personal Assessment</h2>
+      <h3>Related author context (project lineage)</h3>
+      <ol class="bib" start="12">
+        <li>Ciston, Sarah. <em>A Critical Field Guide for Working with Machine Learning Datasets</em>. Knowing Machines, 2023.</li>
+        <li>Crawford, Kate &amp; Vladan Joler. <em>Calculating Empires</em> (2023) &mdash; Ciston was research associate; cited as direct inspiration. Writing on <em>AI War Cloud</em> forthcoming in <em>Leonardo</em> and <em>AI &amp; Society</em>.</li>
+      </ol>
+    </div>
+  </section>
 
-    <p><strong>Appraisal.</strong> The project's great achievement is its double representation.
-    The force-directed graph performs the argument &mdash; everything touches everything &mdash;
-    while the spreadsheet permits verification, and the honesty of the pairing is what elevates
-    the work above most network art. Equally strong is the decision to make provenance a data
-    field: the project practices the accountability it demands. And the open repository turns a
-    finished artwork into standing infrastructure that others can extend &mdash; a model for
-    what I take computational design research to be.</p>
+  <!-- ==================== 11 · BIBLIOGRAPHY B ==================== -->
+  <section class="page" id="p11" data-title="Bibliography B — Others">
+    <div class="page-inner">
+      <p class="kicker">11 &mdash; Sources</p>
+      <h2>Bibliography B &mdash; Others</h2>
+      <p class="note">Saved article texts: <a href="https://github.com/krishna-397/AI-War-Cloud-Database/tree/main/02_others_sources">02_others_sources folder</a></p>
 
-    <p><strong>Criticism.</strong> Two pressures, offered in the project's own spirit. First,
-    the Lombardi problem from my visual analysis: the springy graph flirts with aestheticizing
-    complexity, and only the table redeems it &mdash; a viewer who never clicks through to the
-    spreadsheet gets the sublime without the evidence. Second, OSINT has a ceiling: classified
-    systems appear only through their public exhaust, so the database maps what power
-    <em>publishes</em>, not what it does &mdash; the project acknowledges this but cannot escape
-    it. Neither defeats the work; they mark where a successor project &mdash; perhaps mine
-    &mdash; should push.</p>
+      <h3>Critical reviews &amp; appraisals</h3>
+      <ol class="bib">
+        <li>Navazio, Alessandra. &ldquo;AI War Cloud Database: An Artistic Research on Everyday Technologies.&rdquo; <em>Mangrovia</em>, January 31, 2026. <a href="https://mangrovia.info/en/ai-war-cloud-database/">Link</a> &mdash; most substantive critical text; reads the force-directed graph as an epistemological and political gesture.</li>
+        <li>&ldquo;&lsquo;AI War Cloud Database&rsquo; &mdash; Exposing the Overlaps of AI Used in Warfare and in Everyday Devices.&rdquo; <em>Art Insider</em>, July 4, 2025. <a href="https://www.artinsiderpr.com/editorial/ai-war-cloud-database-exposing-the-overlaps-of-ai-used-in-warfare-and-in-everyday-devices">Link</a></li>
+        <li>S+T+ARTS Prize 2025 Jury. Jury Statement for <em>AI War Cloud Database</em>. <a href="https://starts-prize.aec.at/en/ai-war-cloud-database/">Link</a></li>
+      </ol>
 
-    <h2>Bibliography A &mdash; What the author has written or said</h2>
-    <p class="note">Saved article texts: <a href="https://github.com/krishna-397/AI-War-Cloud-Database/tree/main/01_author_sources">01_author_sources folder</a></p>
+      <h3>Award &amp; press coverage</h3>
+      <ol class="bib" start="4">
+        <li>&ldquo;Winners Revealed for the European Commission&rsquo;s 2025 STARTS Prize.&rdquo; <em>BroadwayWorld</em>, June 4, 2025. <a href="https://www.broadwayworld.com/belgium/article/Winners-Revealed-For-theEuropean-Commissions-2025-STARTS-Prize-20250604">Link</a></li>
+        <li>&ldquo;S+T+ARTS 2025 Prize Winners.&rdquo; <em>XRMust</em>. <a href="https://xrmust.com/xr-magazine/starts-2025-winners/">Link</a></li>
+      </ol>
 
-    <h3>Primary project texts</h3>
-    <ol class="bib">
-      <li>Ciston, Sarah. <em>AI War Cloud</em> &mdash; project website and database. 2024&ndash;ongoing. <a href="https://aiwar.cloud/">aiwar.cloud</a></li>
-      <li>Ciston, Sarah. &ldquo;About the Process.&rdquo; <em>AI War Cloud</em>. <a href="https://aiwar.cloud/about.html">aiwar.cloud/about.html</a> &mdash; process essay, credits, and the project&rsquo;s full working bibliography.</li>
-      <li>Ciston, Sarah. <em>aiwar</em> &mdash; open-source code repository and documentation. <a href="https://gitlab.com/sarahciston/aiwar">GitLab</a></li>
-      <li>Ciston, Sarah. Artist statement, &ldquo;AI War Cloud Database.&rdquo; <em>S+T+ARTS Prize 2025</em>. <a href="https://starts-prize.aec.at/en/ai-war-cloud-database/">starts-prize.aec.at</a></li>
-    </ol>
+      <h3>Exhibition &amp; institutional texts</h3>
+      <ol class="bib" start="6">
+        <li>Sineglossa (curators). <em>Prompting the Real</em> &mdash; exhibition texts, Museo Palazzo Poggi, Bologna, November 2025. <a href="https://sineglossa.it/en/projects/prompting-the-real/">Link</a></li>
+        <li>&ldquo;&lsquo;Prompting the Real&rsquo;, l&rsquo;arte svela potenzialit&agrave; e limiti dell&rsquo;IA.&rdquo; <em>ANSA</em>, October 28, 2025 (Italian). <a href="https://www.ansa.it/sito/notizie/cultura/arte/2025/10/28/prompting-the-real-larte-svela-potenzialita-e-limiti-dellia_3129138b-4028-4096-8e63-c6d0f71278d7.html">Link</a></li>
+        <li>&ldquo;L&rsquo;arte svela potenzialit&agrave; e limiti dell&rsquo;IA.&rdquo; <em>UniBo Magazine</em>, University of Bologna, 2025 (Italian). <a href="https://magazine.unibo.it/it/articoli/l2019arte-svela-potenzialita-e-limiti-dell2019ia-in-scena-all2019alma-mater-la-mostra-prompting-the-real">Link</a></li>
+        <li>&ldquo;AI War Cloud Database &mdash; Algorithmic Entanglements.&rdquo; ZHdK <em>Refresh 2026</em>, San Francisco. <a href="https://refresh.zhdk.ch/refresh-2026-san-francisco/exhibition/ai-war-cloud-database/">Link</a></li>
+      </ol>
 
-    <h3>Interviews &amp; podcasts</h3>
-    <ol class="bib" start="5">
-      <li>Kreuzhuber, Katia (interviewer). &ldquo;Tracing the Invisible Lines Between Devices and Drones.&rdquo; <em>Ars Electronica Blog</em>, June 4, 2025. <a href="https://ars.electronica.art/aeblog/en/2025/06/04/ai-war-cloud-database/">Link</a></li>
-      <li>&ldquo;Web of AI: Linking Homes and Battlefields.&rdquo; <em>Ars Electronica Podcast</em>, 2025. <a href="https://ars.electronica.art/podcast/en/web-of-ai-linking-homes-and-battlefields/">Link</a></li>
-    </ol>
-
-    <h3>Talks &amp; lecture-performances</h3>
-    <ol class="bib" start="7">
-      <li>Ciston, Sarah. &ldquo;Inside the AI War Cloud.&rdquo; Lecture-performance, Ars Electronica Festival 2025: <em>Panic</em>, Linz. <a href="https://ars.electronica.art/panic/en/view/inside-the-ai-war-cloud-22638ddb450c81db89adde611f37652a/">Link</a></li>
-      <li>Ciston, Sarah (panelist). &ldquo;AI War Cloud and the New Architecture of Power.&rdquo; Ars Electronica Festival 2025. <a href="https://ars.electronica.art/panic/en/view/ai-war-cloud-and-the-new-architecture-of-power-23338ddb450c80eda879d05ac7aac77f/">Link</a></li>
-      <li>Ciston, Sarah. &ldquo;Mapping the AI War Cloud.&rdquo; Talk, <em>re:publica 25</em>, Berlin. <a href="https://re-publica.com/en/node/10597">Link</a></li>
-      <li>Ciston, Sarah. &ldquo;Building the AI War Cloud Database.&rdquo; Cambridge Digital Humanities / CRASSH, University of Cambridge. <a href="https://www.cdh.cam.ac.uk/events/39766/">Link</a></li>
-      <li>Ciston, Sarah. <em>AI War Cloud Database</em> project assembly, 39th Chaos Communication Congress, Hamburg, Dec 2025. <a href="https://events.ccc.de/congress/2025/hub/en/project/detail/assembly/ai-war-cloud-database/">Link</a></li>
-    </ol>
-
-    <h3>Related author context (project lineage)</h3>
-    <ol class="bib" start="12">
-      <li>Ciston, Sarah. <em>A Critical Field Guide for Working with Machine Learning Datasets</em>. Knowing Machines, 2023.</li>
-      <li>Crawford, Kate &amp; Vladan Joler. <em>Calculating Empires</em> (2023) &mdash; Ciston was research associate; cited as direct inspiration. Writing on <em>AI War Cloud</em> forthcoming in <em>Leonardo</em> and <em>AI &amp; Society</em>.</li>
-    </ol>
-
-    <h2>Bibliography B &mdash; What others have written</h2>
-    <p class="note">Saved article texts: <a href="https://github.com/krishna-397/AI-War-Cloud-Database/tree/main/02_others_sources">02_others_sources folder</a></p>
-
-    <h3>Critical reviews &amp; appraisals</h3>
-    <ol class="bib">
-      <li>Navazio, Alessandra. &ldquo;AI War Cloud Database: An Artistic Research on Everyday Technologies.&rdquo; <em>Mangrovia</em>, January 31, 2026. <a href="https://mangrovia.info/en/ai-war-cloud-database/">Link</a> &mdash; most substantive critical text; reads the force-directed graph as an epistemological and political gesture.</li>
-      <li>&ldquo;&lsquo;AI War Cloud Database&rsquo; &mdash; Exposing the Overlaps of AI Used in Warfare and in Everyday Devices.&rdquo; <em>Art Insider</em>, July 4, 2025. <a href="https://www.artinsiderpr.com/editorial/ai-war-cloud-database-exposing-the-overlaps-of-ai-used-in-warfare-and-in-everyday-devices">Link</a></li>
-      <li>S+T+ARTS Prize 2025 Jury. Jury Statement for <em>AI War Cloud Database</em>. <a href="https://starts-prize.aec.at/en/ai-war-cloud-database/">Link</a></li>
-    </ol>
-
-    <h3>Award &amp; press coverage</h3>
-    <ol class="bib" start="4">
-      <li>&ldquo;Winners Revealed for the European Commission&rsquo;s 2025 STARTS Prize.&rdquo; <em>BroadwayWorld</em>, June 4, 2025. <a href="https://www.broadwayworld.com/belgium/article/Winners-Revealed-For-theEuropean-Commissions-2025-STARTS-Prize-20250604">Link</a></li>
-      <li>&ldquo;S+T+ARTS 2025 Prize Winners.&rdquo; <em>XRMust</em>. <a href="https://xrmust.com/xr-magazine/starts-2025-winners/">Link</a></li>
-    </ol>
-
-    <h3>Exhibition &amp; institutional texts</h3>
-    <ol class="bib" start="6">
-      <li>Sineglossa (curators). <em>Prompting the Real</em> &mdash; exhibition texts, Museo Palazzo Poggi, Bologna, November 2025. <a href="https://sineglossa.it/en/projects/prompting-the-real/">Link</a></li>
-      <li>&ldquo;&lsquo;Prompting the Real&rsquo;, l&rsquo;arte svela potenzialit&agrave; e limiti dell&rsquo;IA.&rdquo; <em>ANSA</em>, October 28, 2025 (Italian). <a href="https://www.ansa.it/sito/notizie/cultura/arte/2025/10/28/prompting-the-real-larte-svela-potenzialita-e-limiti-dellia_3129138b-4028-4096-8e63-c6d0f71278d7.html">Link</a></li>
-      <li>&ldquo;L&rsquo;arte svela potenzialit&agrave; e limiti dell&rsquo;IA.&rdquo; <em>UniBo Magazine</em>, University of Bologna, 2025 (Italian). <a href="https://magazine.unibo.it/it/articoli/l2019arte-svela-potenzialita-e-limiti-dell2019ia-in-scena-all2019alma-mater-la-mostra-prompting-the-real">Link</a></li>
-      <li>&ldquo;AI War Cloud Database &mdash; Algorithmic Entanglements.&rdquo; ZHdK <em>Refresh 2026</em>, San Francisco. <a href="https://refresh.zhdk.ch/refresh-2026-san-francisco/exhibition/ai-war-cloud-database/">Link</a></li>
-    </ol>
-
-    <footer>
-      Precedent Study, Parts 1&ndash;3 &mdash; Methods as Practices, Columbia GSAPP MSCDP &middot; July 2026<br>
-      Article folders with saved full texts live in this site&rsquo;s GitHub repository.
-    </footer>
-
-  </div>
+      <footer class="colophon">
+        Precedent Study, Parts 1&ndash;3 &mdash; Methods as Practices, Columbia GSAPP MSCDP &middot;
+        Krishna Goyal &middot; July 2026 &middot; Article folders with saved full texts live in this
+        site&rsquo;s GitHub repository. Images remain &copy; their credited authors and are linked
+        from their original publications.
+      </footer>
+    </div>
+  </section>
 
   <script>
-  // ---- ACTOR-NETWORK DIAGRAM (interactive) --------------------------
-  // A small force simulation: nodes repel, edges act as springs.
-  // Drag any node; hover isolates its neighborhood.
+  /* ================================================================
+     PAGED NAVIGATION — click anywhere to continue; overlay menu
+     ================================================================ */
+  const pages = Array.from(document.querySelectorAll(".page"));
+  const progress = document.getElementById("progress");
+  const advanceHint = document.getElementById("advance-hint");
+  const menu = document.getElementById("menu");
+  const menuList = document.getElementById("menu-list");
+  const burger = document.getElementById("burger");
+  const antHolder = document.getElementById("ant-holder");
+  let cur = 0;
+
+  // build the menu from the pages
+  pages.forEach((pg, i) => {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.innerHTML = `<span class="num">${String(i).padStart(2, "0")}</span> ${pg.dataset.title}`;
+    b.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      go(i);
+      toggleMenu(false);
+    });
+    li.appendChild(b);
+    menuList.appendChild(li);
+  });
+
+  function go(i) {
+    cur = Math.max(0, Math.min(pages.length - 1, i));
+    pages.forEach((pg, k) => pg.classList.toggle("active", k === cur));
+    progress.textContent = `${String(cur + 1).padStart(2, "0")} / ${String(pages.length).padStart(2, "0")}`;
+    advanceHint.style.display = cur === pages.length - 1 ? "none" : "block";
+    // the actor-network canvas lives in the hero on page 0 and in the
+    // diagram slot on page 5 — move the DOM node to wherever it's needed
+    if (cur === 0) {
+      document.getElementById("hero-slot").prepend(antHolder);
+    } else if (cur === 5) {
+      document.getElementById("ant-slot").appendChild(antHolder);
+    }
+    resizeAnt();
+    pages[cur].scrollTop = 0;
+  }
+
+  function toggleMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+  }
+
+  burger.addEventListener("click", (ev) => {
+    ev.stopPropagation();
+    toggleMenu(!document.body.classList.contains("menu-open"));
+  });
+
+  // click navigation: left half of the screen goes back, right half
+  // goes forward — except links, the menu, the burger, and the
+  // interactive diagram
+  document.addEventListener("click", (ev) => {
+    if (document.body.classList.contains("menu-open")) return;
+    if (ev.target.closest("a, .burger, .menu, .ant-holder")) return;
+    if (ev.clientX < window.innerWidth / 2) {
+      if (cur > 0) go(cur - 1);
+    } else {
+      if (cur < pages.length - 1) go(cur + 1);
+    }
+  });
+
+  document.addEventListener("keydown", (ev) => {
+    if (ev.key === "Escape") toggleMenu(false);
+    if (ev.key === "ArrowRight") go(cur + 1);
+    if (ev.key === "ArrowLeft") go(cur - 1);
+  });
+
+  // hero image: her map fades into our live map shortly after load
+  window.addEventListener("load", () => {
+    setTimeout(() => document.body.classList.add("hero-faded"), 1800);
+  });
+
+  /* ================================================================
+     ACTOR-NETWORK DIAGRAM (interactive, high-DPI)
+     ================================================================ */
   (function () {
     const cv = document.getElementById("ant");
-    const holder = cv.parentElement;
     const cx2 = cv.getContext("2d");
-    const INK = "#e8e4dc", RED = "#d0342c", DIM = "#8b877e";
+    const INK = "#e8e4dc", RED = "#d0342c", DIMC = "#8b877e";
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-    // shape: c = circle (person/institution), s = square (tool/artifact),
-    //        d = diamond (mapped techno-military system)
-    // red: core work + mapped systems carry the signal color
     const N = [
       { id: "AI WAR CLOUD DATABASE", shape: "s", red: true,  core: true },
-      { id: "SARAH CISTON",          shape: "c", red: false },
+      { id: "SARAH CISTON",          shape: "c" },
       { id: "FORCE-DIRECTED GRAPH",  shape: "s" },
       { id: "SORTABLE TABLE",        shape: "s" },
       { id: "INSTALLATION",          shape: "s" },
@@ -333,8 +576,6 @@
     const ix = {};
     N.forEach((n, i) => ix[n.id] = i);
 
-    // [from, to, style]  solid = makes/renders, dash = informs/circulates,
-    // dot = data flows
     const E = [
       ["SARAH CISTON", "AI WAR CLOUD DATABASE", "solid"],
       ["AI WAR CLOUD DATABASE", "FORCE-DIRECTED GRAPH", "solid"],
@@ -365,15 +606,19 @@
       ["CONTRIBUTORS", "AI WAR CLOUD DATABASE", "dot"],
     ].map(([a, b, st]) => ({ a: ix[a], b: ix[b], st: st }));
 
-    let W, H;
-    function resize() {
-      W = cv.width = holder.clientWidth;
-      H = cv.height = 560;
-    }
-    resize();
+    let W = 600, H = 400;
 
-    // scatter initial positions, core in the middle
-    N.forEach((n, i) => {
+    window.resizeAnt = function () {
+      const holder = document.getElementById("ant-holder");
+      W = holder.clientWidth || 600;
+      H = holder.clientHeight || 400;
+      cv.width = W * DPR;
+      cv.height = H * DPR;
+      cx2.setTransform(DPR, 0, 0, DPR, 0, 0);
+    };
+    resizeAnt();
+
+    N.forEach((n) => {
       n.x = W / 2 + (Math.random() - 0.5) * W * 0.7;
       n.y = H / 2 + (Math.random() - 0.5) * H * 0.7;
       n.vx = 0; n.vy = 0;
@@ -383,7 +628,6 @@
     let dragging = null, hover = null;
 
     function step() {
-      // repulsion between all pairs
       for (let i = 0; i < N.length; i++) {
         for (let j = i + 1; j < N.length; j++) {
           const a = N[i], b = N[j];
@@ -396,25 +640,22 @@
           b.vx -= dx * f; b.vy -= dy * f;
         }
       }
-      // springs along edges
       E.forEach((e) => {
         const a = N[e.a], b = N[e.b];
         const dx = b.x - a.x, dy = b.y - a.y;
         const d = Math.hypot(dx, dy) || 1;
-        const f = (d - 110) * 0.004;
+        const f = (d - 88) * 0.004;
         a.vx += (dx / d) * f * d * 0.02; a.vy += (dy / d) * f * d * 0.02;
         b.vx -= (dx / d) * f * d * 0.02; b.vy -= (dy / d) * f * d * 0.02;
       });
-      // gentle pull to center + integrate
       N.forEach((n) => {
-        n.vx += (W / 2 - n.x) * 0.0008;
-        n.vy += (H / 2 - n.y) * 0.0012;
-        if (n !== dragging) {
-          n.x += n.vx; n.y += n.vy;
-        }
+        n.vx += (W / 2 - n.x) * 0.0011;
+        n.vy += (H / 2 - n.y) * 0.0015;
+        if (n !== dragging) { n.x += n.vx; n.y += n.vy; }
         n.vx *= 0.86; n.vy *= 0.86;
-        n.x = Math.max(30, Math.min(W - 30, n.x));
-        n.y = Math.max(24, Math.min(H - 24, n.y));
+        // generous margins so labels never leave the frame
+        n.x = Math.max(40, Math.min(W - 40, n.x));
+        n.y = Math.max(30, Math.min(H - 26, n.y));
       });
     }
 
@@ -467,8 +708,15 @@
         cx2.fill();
 
         cx2.font = (n.core ? "bold 11px" : "10px") + " ui-monospace, Consolas, monospace";
-        cx2.fillStyle = lit ? (n.red ? RED : INK) : DIM;
-        cx2.fillText(n.id, n.x + r + 6, n.y + 3);
+        cx2.fillStyle = lit ? (n.red ? RED : INK) : DIMC;
+        // labels flip to the left on the right half so they stay in frame
+        if (n.x > W * 0.62) {
+          cx2.textAlign = "right";
+          cx2.fillText(n.id, n.x - r - 6, n.y + 3);
+        } else {
+          cx2.textAlign = "left";
+          cx2.fillText(n.id, n.x + r + 6, n.y + 3);
+        }
         cx2.globalAlpha = 1;
       });
     }
@@ -497,7 +745,7 @@
       cv.style.cursor = (dragging || hover) ? "grab" : "default";
     });
     window.addEventListener("mouseup", () => dragging = null);
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resizeAnt);
 
     (function loop() {
       step();
@@ -506,18 +754,15 @@
     })();
   })();
 
-  // ---- background network graph, with depth ------------------------
-  // Three parallax planes: tiny dim nodes far back, a mid field, and
-  // large slow nodes up front. The whole field shifts slightly with
-  // the mouse. "Hot" nodes glow signal red and carry the names of real
-  // entities from the AI War Cloud database — the background is
-  // content, not decoration. Kept faint on purpose.
+  /* ================================================================
+     BACKGROUND NETWORK (parallax depth, labeled hot nodes, high-DPI)
+     ================================================================ */
   (function () {
     const cv = document.getElementById("net");
     const cx = cv.getContext("2d");
     const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
 
-    // real entities catalogued by the precedent
     const ENTITIES = [
       "LAVENDER", "PALANTIR", "METACONSTELLATION", "WHATSAPP", "ROOMBA",
       "PROJECT MAVEN", "PROJECT NIMBUS", "ANDURIL", "LATTICE OS",
@@ -525,21 +770,23 @@
     ];
 
     let W, H, nodes;
-    let mx = 0.5, my = 0.5;          // mouse position, normalized
-    let px = 0.5, py = 0.5;          // eased parallax position
+    let mx = 0.5, my = 0.5;
+    let px = 0.5, py = 0.5;
 
     function resize() {
-      W = cv.width = window.innerWidth;
-      H = cv.height = window.innerHeight;
+      W = window.innerWidth;
+      H = window.innerHeight;
+      cv.width = W * DPR;
+      cv.height = H * DPR;
+      cx.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
 
     function init() {
       resize();
-      const N = Math.min(72, Math.round(W / 24));
+      const NN = Math.min(72, Math.round(W / 24));
       nodes = [];
       let label = 0;
-      for (let i = 0; i < N; i++) {
-        // depth plane: 0.35 far, 0.65 mid, 1.0 near
+      for (let i = 0; i < NN; i++) {
         const z = [0.35, 0.65, 1.0][i % 3];
         const hot = i % 8 === 0;
         nodes.push({
@@ -550,21 +797,16 @@
           r: (0.8 + Math.random() * 1.4) * (z * 2),
           z: z,
           hot: hot,
-          // only near/mid hot nodes get a name
           label: hot && z > 0.5 ? ENTITIES[label++ % ENTITIES.length] : null,
         });
       }
     }
 
-    // parallax offset for a node: near planes move more
     function ox(n) { return n.x + (px - 0.5) * 34 * n.z; }
     function oy(n) { return n.y + (py - 0.5) * 22 * n.z; }
 
     function draw() {
       cx.clearRect(0, 0, W, H);
-
-      // edges: only between nodes on similar planes, so each
-      // depth layer reads as its own web
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i], b = nodes[j];
@@ -585,8 +827,6 @@
           }
         }
       }
-
-      // nodes, far plane first
       [...nodes].sort((a, b) => a.z - b.z).forEach((n) => {
         const alpha = n.hot ? 0.28 + 0.35 * n.z : 0.10 + 0.22 * n.z;
         cx.fillStyle = n.hot
@@ -595,7 +835,6 @@
         cx.beginPath();
         cx.arc(ox(n), oy(n), n.r, 0, Math.PI * 2);
         cx.fill();
-
         if (n.label) {
           cx.font = `${Math.round(7 + 3 * n.z)}px ui-monospace, Consolas, monospace`;
           cx.fillStyle = `rgba(208, 52, 44, ${0.20 + 0.18 * n.z})`;
@@ -605,10 +844,8 @@
     }
 
     function step() {
-      // ease the parallax toward the mouse
       px += (mx - px) * 0.04;
       py += (my - py) * 0.04;
-
       nodes.forEach((n) => {
         n.x += n.vx;
         n.y += n.vy;
@@ -625,9 +862,12 @@
     });
     window.addEventListener("resize", () => { init(); draw(); });
     init();
-    if (REDUCED) draw();      // static field for reduced-motion users
+    if (REDUCED) draw();
     else step();
   })();
+
+  // initialize page state
+  go(0);
   </script>
 </body>
 </html>
